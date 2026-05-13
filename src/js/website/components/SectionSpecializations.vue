@@ -86,18 +86,18 @@ const { prefix, stat1Num, stat2Num } = props;
 const effectiveCols = computed(() => {
   if (props.cols.length > 0) return props.cols;
   return [
-    { icon: 'ph-lightning',       accent: '#2c77fa', name: t('spec.col0.name'), desc: t('spec.col0.desc') },
-    { icon: 'ph-fire',            accent: '#f43f5e', name: t('spec.col1.name'), desc: t('spec.col1.desc') },
-    { icon: 'ph-wifi-high',       accent: '#8b5cf6', name: t('spec.col2.name'), desc: t('spec.col2.desc') },
-    { icon: 'ph-cpu',             accent: '#0891b2', name: t('spec.col3.name'), desc: t('spec.col3.desc') },
+    { icon: 'ph-lightning',       accent: '#f07828', name: t('spec.col0.name'), desc: t('spec.col0.desc') },
+    { icon: 'ph-fire',            accent: '#9828e0', name: t('spec.col1.name'), desc: t('spec.col1.desc') },
+    { icon: 'ph-wifi-high',       accent: '#2888f0', name: t('spec.col2.name'), desc: t('spec.col2.desc') },
+    { icon: 'ph-cpu',             accent: '#9828e0', name: t('spec.col3.name'), desc: t('spec.col3.desc') },
   ];
 });
 
 const effectivePartnerCols = computed(() => {
   if (props.partnerCols === null) return [
-    { icon: 'ph-drop',             accent: '#3b82f6', name: t('spec.partner0.name'), desc: t('spec.partner0.desc') },
-    { icon: 'ph-wind',             accent: '#10d4c0', name: t('spec.partner1.name'), desc: t('spec.partner1.desc') },
-    { icon: 'ph-fire-extinguisher',accent: '#fb923c', name: t('spec.partner2.name'), desc: t('spec.partner2.desc') },
+    { icon: 'ph-drop',             accent: '#2888f0', name: t('spec.partner0.name'), desc: t('spec.partner0.desc') },
+    { icon: 'ph-wind',             accent: '#10d4d8', name: t('spec.partner1.name'), desc: t('spec.partner1.desc') },
+    { icon: 'ph-fire-extinguisher',accent: '#e83030', name: t('spec.partner2.name'), desc: t('spec.partner2.desc') },
   ];
   return props.partnerCols;
 });
@@ -247,7 +247,7 @@ onUnmounted(() => {
 }
 
 .spec-big-h {
-  font-size: clamp(52px, 7vw, 100px);
+  font-size: clamp(40px, 5.5vw, 78px);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.04em;

@@ -235,7 +235,7 @@ nav.menu-open {
 }
 
 .nav-cta-arrow {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1;
   transition: transform 0.2s;
 }

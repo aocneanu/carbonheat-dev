@@ -7,7 +7,7 @@
         <p class="sec-label">{{ t(prefix + '.label') }}</p>
         <h2 class="cta-h2">{{ t(prefix + '.heading') }}</h2>
         <p class="cta-sub">{{ t(prefix + '.sub') }}</p>
-        <RouterLink :to="btnTo" class="btn-outline">{{ t(prefix + '.btn') }} <span style="margin-left:8px">›</span></RouterLink>
+        <RouterLink :to="btnTo" class="btn-outline">{{ t(prefix + '.btn') }} <i class="ph ph-caret-right btn-arrow"></i></RouterLink>
       </div>
     </div>
   </section>
@@ -97,6 +97,7 @@ const { prefix, btnTo } = props;
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding: 11px 26px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: rgba(255, 255, 255, 0.88);
@@ -111,6 +112,14 @@ const { prefix, btnTo } = props;
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
+
+.btn-arrow {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-outline:hover .btn-arrow { transform: translateX(2px); }
 
 @media (max-width: 640px) {
   .cnt { padding: 0 24px; }

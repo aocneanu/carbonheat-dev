@@ -166,6 +166,11 @@ onUnmounted(() => {
   color: #2c77fa;
 }
 
+@media (max-width: 1919px) {
+  .title    { font-size: clamp(32px, 4.2vw, 68px); }
+  .subtitle { font-size: clamp(16px, 1.7vw, 24px); }
+}
+
 @media (max-width: 640px) {
   .hero-page { height: 70vh; min-height: 480px; }
   .title, .subtitle { padding: 0 16px; }

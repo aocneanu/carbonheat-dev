@@ -7,7 +7,7 @@
         <p class="sec-label">{{ t('cta.label') }}</p>
         <h2 class="cta-h2">{{ t('cta.heading') }}</h2>
         <p class="cta-sub">{{ t('cta.sub') }}</p>
-        <RouterLink to="/despre-noi#contact" class="btn-outline">{{ t('cta.btn') }} <span style="margin-left:8px">›</span></RouterLink>
+        <RouterLink to="/despre-noi#contact" class="btn-outline">{{ t('cta.btn') }} <i class="ph ph-caret-right btn-arrow"></i></RouterLink>
       </div>
     </div>
   </section>
@@ -178,6 +178,7 @@ onUnmounted(() => {
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding: 11px 26px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: rgba(255, 255, 255, 0.88);
@@ -192,4 +193,12 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
+
+.btn-arrow {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-outline:hover .btn-arrow { transform: translateX(2px); }
 </style>
