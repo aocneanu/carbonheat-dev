@@ -4,11 +4,11 @@ import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 
 export const SYSTEMS = [
-    { color: 0xf07828, ro: 'Instalații Electrice',     en: 'Electrical Systems' },
-    { color: 0xe83030, ro: 'Detectare & Avertizare',   en: 'Fire Detection & Alarm' },
-    { color: 0x9828e0, ro: 'Curenți Slabi',            en: 'Low-Voltage Systems' },
-    { color: 0x2888f0, ro: 'Instalații Sanitare',      en: 'Sanitary & Drainage' },
-    { color: 0x10d4d8, ro: 'Ventilație & Climatizare', en: 'HVAC & Climate' },
+    { color: 0xf07828, ro: 'Instalații Electrice',           en: 'Electrical Installations' },
+    { color: 0x9828e0, ro: 'Detectare & Avertizare',         en: 'Fire Detection & Alarm' },
+    { color: 0xe83030, ro: 'Stingere Incendiu',              en: 'Fire Suppression' },
+    { color: 0x9828e0, ro: 'Sisteme Management',             en: 'Building Management' },
+    { color: 0x10d4d8, ro: 'Ventilație & Climatizare',       en: 'HVAC & Climate' },
 ];
 
 export const ZONE_DEFAULTS = {
@@ -348,8 +348,11 @@ function hvacRoutes(g, A, B, C) {
     return out;
 }
 
+// Note: this geometry is currently mapped to the "Detectare/Semnalizare/Avertizare" card,
+// hence the purple color (matches SYSTEMS[1].color). Pipe layout still works as a visual
+// proxy for fire alarm cabling networks. Restore 0x2888f0 if remapped to Sanitare again.
 function sanitaryRoutes(g, A, B, C) {
-    const c = 0x2888f0, out = [];
+    const c = 0x9828e0, out = [];
     const fy = 0.05;
 
     const psX = B.xMax - 0.15, psZ = (B.zMin + B.zMax) / 2;
@@ -540,7 +543,7 @@ export function useMepSystems() {
         if (built) return;
         built = true;
         const { A, B, C } = getZones(zoneVals);
-        const builders = [electricRoutes, fireRoutes, bmsRoutes, sanitaryRoutes, hvacRoutes];
+        const builders = [electricRoutes, sanitaryRoutes, fireRoutes, bmsRoutes, hvacRoutes];
         builders.forEach((fn, i) => {
             const g = new THREE.Group();
             scene.add(g);

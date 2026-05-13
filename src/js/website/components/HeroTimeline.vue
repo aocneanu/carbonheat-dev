@@ -39,26 +39,26 @@ const props = defineProps({
 
 const { locale } = useI18n();
 
-const icons = ['ph-lightning', 'ph-fire-extinguisher', 'ph-shield-check', 'ph-drop', 'ph-wind'];
+const icons = ['ph-lightning', 'ph-shield-check', 'ph-fire-extinguisher', 'ph-cpu', 'ph-wind'];
 
 const labels = {
-  ro: ['Instalații Electrice', 'Detectare și Avertizare Incendiu', 'Curenți Slabi', 'Sanitare', 'HVAC'],
-  en: ['Electrical Installations', 'Fire Detection & Alarm', 'Low-Voltage Systems', 'Plumbing', 'HVAC'],
+  ro: ['Instalații Electrice', 'Detectare, Semnalizare și Avertizare Incendiu', 'Stingere Incendiu', 'Sisteme Management Clădire', 'HVAC'],
+  en: ['Electrical Installations', 'Fire Detection & Alarm', 'Fire Suppression', 'Building Management System', 'HVAC'],
 };
 
 const descriptions = {
   ro: [
     'Distribuție de forță, iluminat tehnologic și prize industriale, cu tablouri și protecții complete.',
-    'Sprinklere, hidranți și detecție automată, conform normativelor ISU și polițelor de asigurare.',
-    'CCTV, voce-date, control acces și efracție — instalații integrate pentru securitate și comunicații în halele industriale.',
-    'Apă rece, caldă, canalizare menajeră și pluvială, dimensionate pentru încărcările halei.',
+    'Detectoare optice și termice, butoane manuale, sirene și panou de control, integrate conform normelor ISU.',
+    'Sprinklere, hidranți și pompe, dimensionate pentru riscul specific al halei și polițele de asigurare.',
+    'Automatizare și supervizare unitară pentru toate instalațiile, cu raportare și acces la distanță.',
     'Ventilație, climatizare și tratare aer pentru hale și spații tehnice, cu integrare în BMS.',
   ],
   en: [
     'Power distribution, technological lighting and industrial sockets, with complete switchboards and protections.',
-    'Sprinklers, hydrants and automatic detection, compliant with fire authority and insurance requirements.',
-    'CCTV, voice-data, access control and intrusion alarms — integrated low-voltage systems for industrial security and communications.',
-    'Cold water, hot water, sewage and stormwater drainage, sized for the hall’s loads.',
+    'Optical and thermal detectors, manual call points, sounders and control panel, compliant with fire authority standards.',
+    'Sprinklers, hydrants and pumps, sized for the hall’s specific risk and insurance policies.',
+    'Unified automation and supervision for all systems, with reporting and remote access.',
     'Ventilation, air conditioning and air handling for halls and technical spaces, integrated with BMS.',
   ],
 };
