@@ -173,6 +173,8 @@ onUnmounted(() => {
 
 @media (max-width: 640px) {
   .hero-page { height: 70vh; min-height: 480px; }
-  .title, .subtitle { padding: 0 16px; }
+  .hero-text { width: min(94%, 1200px); }
+  .title    { padding: 0 16px; font-size: clamp(28px, 8vw, 42px); }
+  .subtitle { padding: 0 16px; font-size: clamp(15px, 4vw, 20px); }
 }
 </style>

@@ -173,4 +173,19 @@ function buildEdges(grp) {
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
 }
+
+@media (max-width: 640px) {
+  .hero-text {
+    top: 100px;
+    width: min(94%, 1312px);
+  }
+  .headline {
+    padding: 0 16px;
+    font-size: clamp(26px, 7vw, 38px);
+    line-height: 1.1;
+  }
+  #three-canvas {
+    transform: none;
+  }
+}
 </style>

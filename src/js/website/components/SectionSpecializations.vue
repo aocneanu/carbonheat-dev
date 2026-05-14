@@ -87,9 +87,9 @@ const effectiveCols = computed(() => {
   if (props.cols.length > 0) return props.cols;
   return [
     { icon: 'ph-lightning',       accent: '#f07828', name: t('spec.col0.name'), desc: t('spec.col0.desc') },
-    { icon: 'ph-fire',            accent: '#9828e0', name: t('spec.col1.name'), desc: t('spec.col1.desc') },
-    { icon: 'ph-wifi-high',       accent: '#2888f0', name: t('spec.col2.name'), desc: t('spec.col2.desc') },
-    { icon: 'ph-cpu',             accent: '#9828e0', name: t('spec.col3.name'), desc: t('spec.col3.desc') },
+    { icon: 'ph-shield-check',    accent: '#c084fc', name: t('spec.col1.name'), desc: t('spec.col1.desc') },
+    { icon: 'ph-security-camera', accent: '#34d399', name: t('spec.col2.name'), desc: t('spec.col2.desc') },
+    { icon: 'ph-cpu',             accent: '#2888f0', name: t('spec.col3.name'), desc: t('spec.col3.desc') },
   ];
 });
 

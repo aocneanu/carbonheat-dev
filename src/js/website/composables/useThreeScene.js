@@ -39,7 +39,7 @@ export function useThreeScene() {
         canvasEl = canvas;
         renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.0;

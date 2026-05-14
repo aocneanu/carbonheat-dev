@@ -126,6 +126,16 @@ const { prefix, bgFade } = props;
   font-family: 'Outfit', sans-serif;
 }
 
+@media (max-width: 1200px) and (min-width: 641px) {
+  .fs-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 24px 12px;
+  }
+}
+
 @media (max-width: 1024px) {
   .fs-divider { display: none; }
 }

@@ -168,6 +168,30 @@ function toggle(i) {
   flex-shrink: 0;
 }
 
+@media (max-width: 1200px) and (min-width: 769px) {
+  .st-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 10px;
+  }
+  .st-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .st-label {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  .st-dot {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .sys-timeline {
     margin-top: 32px;

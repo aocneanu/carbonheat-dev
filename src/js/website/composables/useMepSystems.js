@@ -5,9 +5,9 @@ import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 
 export const SYSTEMS = [
     { color: 0xf07828, ro: 'Instalații Electrice',           en: 'Electrical Installations' },
-    { color: 0x9828e0, ro: 'Detectare & Avertizare',         en: 'Fire Detection & Alarm' },
+    { color: 0xc084fc, ro: 'Detectare & Avertizare',         en: 'Fire Detection & Alarm' },
     { color: 0xe83030, ro: 'Stingere Incendiu',              en: 'Fire Suppression' },
-    { color: 0x9828e0, ro: 'Sisteme Management',             en: 'Building Management' },
+    { color: 0x2888f0, ro: 'Sisteme Management',             en: 'Building Management' },
     { color: 0x10d4d8, ro: 'Ventilație & Climatizare',       en: 'HVAC & Climate' },
 ];
 
@@ -352,7 +352,7 @@ function hvacRoutes(g, A, B, C) {
 // hence the purple color (matches SYSTEMS[1].color). Pipe layout still works as a visual
 // proxy for fire alarm cabling networks. Restore 0x2888f0 if remapped to Sanitare again.
 function sanitaryRoutes(g, A, B, C) {
-    const c = 0x9828e0, out = [];
+    const c = 0xc084fc, out = [];
     const fy = 0.05;
 
     const psX = B.xMax - 0.15, psZ = (B.zMin + B.zMax) / 2;
@@ -454,7 +454,7 @@ function fireRoutes(g, A, B, C) {
 }
 
 function bmsRoutes(g, A, B, C) {
-    const c = 0x9828e0, out = [];
+    const c = 0x2888f0, out = [];
     const cha = A.ceil - 0.05, chb = B.ceil - 0.05, chc = C.ceil - 0.05;
     const tw = 0.06;
 

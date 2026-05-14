@@ -30,6 +30,17 @@
         </div>
       </div>
     </div>
+
+    <div class="cnt proj-progress">
+      <div class="proj-progress-track">
+        <div class="proj-progress-fill" :style="{ width: progressPct + '%' }"></div>
+      </div>
+      <div class="proj-step-counter">
+        <span class="psc-current">{{ String(currentStep + 1).padStart(2, '0') }}</span>
+        <span class="psc-sep">/</span>
+        <span class="psc-total">{{ String(effectiveProjects.length).padStart(2, '0') }}</span>
+      </div>
+    </div>
   </section>
 
   <Teleport to="body">
@@ -121,6 +132,20 @@ const effectiveProjects = computed(() => {
 const trackWrapEl  = ref(null);
 const slideRefs    = reactive([]);
 const revealedSlides = reactive({});
+const progressPct = ref(0);
+const currentStep = ref(0);
+
+function onScroll() {
+  const wrap = trackWrapEl.value;
+  if (!wrap) return;
+  const max = wrap.scrollWidth - wrap.clientWidth;
+  const pct = max > 0 ? (wrap.scrollLeft / max) * 100 : 0;
+  progressPct.value = pct;
+  const total = effectiveProjects.value.length;
+  currentStep.value = total > 1
+    ? Math.min(Math.round((pct / 100) * (total - 1)), total - 1)
+    : 0;
+}
 
 const lightbox = reactive({ open: false, projectIndex: -1, photoIndex: 0 });
 
@@ -176,6 +201,7 @@ function onMouseMove(e) {
 
 onMounted(() => {
   const wrap = trackWrapEl.value;
+  wrap.addEventListener('scroll', onScroll, { passive: true });
   wrap.addEventListener('mousedown', onMouseDown);
   wrap.addEventListener('mouseleave', onMouseLeave);
   wrap.addEventListener('mouseup', onMouseUp);
@@ -198,6 +224,7 @@ onMounted(() => {
 onUnmounted(() => {
   const wrap = trackWrapEl.value;
   if (wrap) {
+    wrap.removeEventListener('scroll', onScroll);
     wrap.removeEventListener('mousedown', onMouseDown);
     wrap.removeEventListener('mouseleave', onMouseLeave);
     wrap.removeEventListener('mouseup', onMouseUp);
@@ -446,10 +473,56 @@ onUnmounted(() => {
 .lb-thumb:hover { opacity: 0.75; }
 .lb-thumb.active { opacity: 1; border-color: #2c77fa; }
 
+.proj-progress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.proj-progress-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.proj-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2c77fa, #7c3aed, #10d4c0);
+  border-radius: 2px;
+  transition: width 0.15s;
+}
+
+.proj-step-counter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.psc-current {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.05em;
+  min-width: 20px;
+}
+
+.psc-sep  { font-size: 11px; color: rgba(255,255,255,0.2); }
+.psc-total { font-size: 13px; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+
 @media (max-width: 640px) {
   .cnt { padding: 0 24px; }
-  .proj-slide { width: 320px; }
-  .proj-slide-img { height: 320px; }
+  .proj-slide { width: min(400px, calc(100vw - 32px)); scroll-snap-align: center; }
+  .proj-slide-img { height: min(400px, calc(100vw - 32px)); }
   .lb-arrow { display: none; }
+  .proj-track-wrap {
+    padding-left: max(16px, calc((100vw - 400px) / 2));
+    padding-right: max(16px, calc((100vw - 400px) / 2));
+    scroll-snap-type: x mandatory;
+  }
+  .proj-progress { padding: 0 56px; }
 }
 </style>

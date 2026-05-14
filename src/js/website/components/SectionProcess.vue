@@ -511,4 +511,15 @@ onUnmounted(() => {
 @media (max-width: 1024px) {
   .process-header { grid-template-columns: 1fr; gap: 40px; }
 }
+
+@media (max-width: 640px) {
+  .process-card { width: min(340px, calc(100vw - 40px)); }
+  .process-track-wrap {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    padding-inline: max(20px, calc((100vw - 340px) / 2));
+    scroll-snap-type: x mandatory;
+  }
+  .process-card { scroll-snap-align: center; }
+}
 </style>
